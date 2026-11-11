@@ -1,18 +1,21 @@
 package org.example;
 
-abstract class LojaDePizza {
+public abstract class LojaDePizza {
 
-    Pizza pediPizza(String tipo){
+    public Pizza pedirPizza(String tipo) {
         Pizza pizza = criarPizza(tipo);
 
-        pizza.preparar();
-        pizza.assar();
-        pizza.fatiar();
-        pizza.embalar();
+        if (pizza != null) {
+            pizza.preparar();
+            pizza.assar();
+            pizza.fatiar();
+            pizza.embalar();
+        } else {
+            System.out.println("Desculpe, não temos o sabor: " + tipo);
+        }
 
         return pizza;
     }
 
-    abstract Pizza criarPizza(String tipo);
-
+    protected abstract Pizza criarPizza(String tipo);
 }

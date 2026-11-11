@@ -1,10 +1,21 @@
 package org.example;
 
-public interface Pizza {
-    String nome;
+public abstract class Pizza {
+    protected String nome;
 
-    void preparar ();
-    void assar ();
-    void fatiar();
-    void embalar();
+    public void preparar() {
+        System.out.println("Preparando " + nome);
+    }
+
+    public void assar() {
+        System.out.println("Assando " + nome);
+    }
+
+    public void fatiar() {
+        System.out.println("Fatiando " + nome);
+    }
+
+    public void embalar() {
+        System.out.println("Embalando " + nome + " na caixa oficial");
+    }
 }

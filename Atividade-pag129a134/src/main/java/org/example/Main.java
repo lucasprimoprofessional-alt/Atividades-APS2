@@ -1,17 +1,32 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import org.example.Lojas.LojaDePizzaChicago;
+import org.example.Lojas.LojaDePizzaNovaYork;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("========== LOJA DE NOVA YORK ==========");
+        LojaDePizza lojaNovaYork = new LojaDePizza() {
+            @Override
+            protected Pizza criarPizza(String tipo) {
+                return null;
+            }
+        };
+
+        // A loja de NY cria a pizza de queijo
+        System.out.println("\nPedindo uma pizza de queijo:");
+        lojaNovaYork.pedirPizza("queijo");
+
+        System.out.println("\n========== LOJA DE CHICAGO ==========");
+        LojaDePizza lojaChicago = new LojaDePizzaChicago();
+
+        // A loja de Chicago cria a pizza de calabresa
+        System.out.println("\nPedindo uma pizza de calabresa:");
+        lojaChicago.pedirPizza("calabresa");
+
+        // Testando o erro (a loja de Chicago não vende queijo)
+        System.out.println("\nPedindo uma pizza de queijo em Chicago (não deve existir):");
+        lojaChicago.pedirPizza("queijo");
     }
 }
